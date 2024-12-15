@@ -107,4 +107,15 @@ class Date implements Comparable<Date> {
         return 0;
     }
 
+    @Override
+    public boolean equals(Object other){
+        if(other instanceof Date){
+            Date otherAsDate = (Date) other;
+            return otherAsDate.day == this.day
+                    && otherAsDate.month == this.month
+                    && otherAsDate.year == this.year;
+        }
+        return false;
+    }
+
 }
