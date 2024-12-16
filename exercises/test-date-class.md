@@ -72,3 +72,6 @@ Pour compareTo, on a toujours les mêmes 3 caractéristiques. Les blocs associé
 Cette fois les valeurs en elles-mêmes ne sont pas importantes. On travaille sur des dates correctes donc on n'a pas besoin de vérifier la cohérence des valeurs, et des valeurs de "borne" (dernier jour d'un mois par exemple) ne produisent pas un résultat différent de valeurs quelconques.
 
 
+PIT donne un score de 91% avec 7 mutations toujours "en vie" sur 75 générées. Le rapport révèle que deux morceaux de code ne sont pas couverts :
+- dans le calcul de l'année bissextile, le cas divisible par 4 mais pas par 100 a été vérifié (2024, 2025) mais pas le cas divisible par 400, le cas divisible par 100 non plus. J'ai donc rajouté un test avec l'année 2000 (bissextile) et l'année 1900 (divisible par 100 donc non bissextile).
+- dans le calcul des mois, une mutation "changed conditional boundary" a survécu. J'ai ajouté un test pour chacun des mois de l'année mais elle survit toujours sans que je comprenne pourquoi. C'est la seule à survivre sur l'ensemble de la classe.

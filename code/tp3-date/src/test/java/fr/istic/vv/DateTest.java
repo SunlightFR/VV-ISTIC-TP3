@@ -21,13 +21,23 @@ class DateTest {
 
     @Test
     public void testDay31On30Month(){
+        assertThrows(IllegalArgumentException.class, ()->new Date(31, 2, 2024));
+        assertThrows(IllegalArgumentException.class, ()->new Date(31, 4, 2024));
         assertThrows(IllegalArgumentException.class, ()->new Date(31, 6, 2024));
+        assertThrows(IllegalArgumentException.class, ()->new Date(31, 9, 2024));
+        assertThrows(IllegalArgumentException.class, ()->new Date(31, 11, 2024));
     }
 
 
     @Test
     public void testDay31On31Month(){
+        assertDoesNotThrow( ()->new Date(31, 1, 2024));
+        assertDoesNotThrow( ()->new Date(31, 3, 2024));
+        assertDoesNotThrow( ()->new Date(31, 5, 2024));
         assertDoesNotThrow( ()->new Date(31, 7, 2024));
+        assertDoesNotThrow( ()->new Date(31, 8, 2024));
+        assertDoesNotThrow( ()->new Date(31, 10, 2024));
+        assertDoesNotThrow( ()->new Date(31, 12, 2024));
     }
 
     @Test
@@ -45,6 +55,15 @@ class DateTest {
         assertThrows(IllegalArgumentException.class, ()->new Date(29, 2, 2025));
     }
 
+    @Test
+    public void testLeapYear400(){
+        assertDoesNotThrow(()->new Date(29,2,2000));
+    }
+
+    @Test
+    public void testNonLeapYear100(){
+        assertThrows(IllegalArgumentException.class, ()-> new Date(29,2,1900));
+    }
     /**
      * Tests nextDate
      */

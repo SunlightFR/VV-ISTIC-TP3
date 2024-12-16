@@ -57,9 +57,6 @@ class Date implements Comparable<Date> {
         return year%4==0 && year%100!=0 || year%400==0;
     }
 
-    private int getNextYear(int year){
-        return year+1;
-    }
 
     public Date nextDate() {
         if(day == getNumberOfDays(month, year)){
