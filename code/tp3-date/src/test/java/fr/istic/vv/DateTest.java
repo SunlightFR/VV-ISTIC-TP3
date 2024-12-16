@@ -111,5 +111,36 @@ class DateTest {
         assertEquals(new Date(1,1,2025).previousDate(), new Date(31,12,2024));
     }
 
+    @Test
+    public void compareToDifferentYears(){
+        Date date1 = new Date(5,6,2024);
+        Date date2 = new Date(8,9,2023);
+        assertEquals(1, date1.compareTo(date2));
+        assertEquals(-1, date2.compareTo(date1));
+    }
 
+
+    @Test
+    public void compareToDifferentMonths(){
+        Date date1 = new Date(5,9,2024);
+        Date date2 = new Date(8,6,2024);
+        assertEquals(1, date1.compareTo(date2));
+        assertEquals(-1, date2.compareTo(date1));
+    }
+
+    @Test
+    public void compareToDifferentDays(){
+        Date date1 = new Date(10,9,2024);
+        Date date2 = new Date(8,9,2024);
+        assertEquals(1, date1.compareTo(date2));
+        assertEquals(-1, date2.compareTo(date1));
+    }
+
+    @Test
+    public void compareToSameDate(){
+        Date date1 = new Date(5,6,2024);
+        Date date2 = new Date(5,6,2024);
+        assertEquals(0, date1.compareTo(date2));
+        assertEquals(0, date2.compareTo(date1));
+    }
 }
