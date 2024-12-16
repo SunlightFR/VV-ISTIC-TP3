@@ -57,7 +57,16 @@ Pour le constructeur, les caractéristiques sont au nombre de trois : jour, mois
 - année : année bissextile, année non bissextile
 - jour : pour le jour, les valeurs dépendent aussi du mois. Ainsi si le mois est février, on devra vérifier qu'une valeur de 30 est mauvaise alors qu'elle ne le serait pas pour un autre mois. Il faut donc le vérifier conjointement au mois. On peut néanmoins vérifier qu'il doit toujours être supérieur à 1.
 
-Pour les méthodes nextDate et previousDate, les valeurs des bornes sont particulièrement importantes. Il est inutile de vérifier les valeurs < 1 puisqu'on travaille sur des dates supposées correctes. Les blocs de cette méthode sont un sous-ensemble de ceux du constructeur.
+Pour les méthodes nextDate et previousDate, les valeurs des bornes sont particulièrement importantes. Il est inutile de vérifier les valeurs < 1 puisqu'on travaille sur des dates supposées correctes. Les blocs de cette méthode sont un sous-ensemble de ceux du constructeur, c'est à dire :
+- nextDate : 
+- - mois : 31 jours, 30 jours, février, 
+- - année : bissextile, non bissextile
+- - jour : 30 sur un mois à 30 jours, 31 sur un mois à 31, 28 en février d'une année non bissextile, 29 en février d'une année bissextile, 1<=autre valeur<=28
+- previousDate :
+- - mois : 31 jours, 30 jours, février
+- - année : bissextile, non bissextile
+- - jour : 1 sur un mois où le mois précédent a 31 jours, 1 sur un mois où le mois précédent a 30 jours/29 jours/28 jours, autre valeur
+Il faut également tester les bornes des années (31 décembre pour nextDate et 1er janvier pour previousDate).
 
 Pour compareTo, on a toujours les mêmes 3 caractéristiques. Les blocs associés sont <, > ou = à la valeur correspondante de l'autre date. (exemple : this.day peut prendre les valeurs "> other.day", "< other.day" ou "= other.day").
 Cette fois les valeurs en elles-mêmes ne sont pas importantes. On travaille sur des dates correctes donc on n'a pas besoin de vérifier la cohérence des valeurs, et des valeurs de "borne" (dernier jour d'un mois par exemple) ne produisent pas un résultat différent de valeurs quelconques.

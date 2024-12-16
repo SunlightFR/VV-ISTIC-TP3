@@ -78,5 +78,38 @@ class DateTest {
         assertEquals(new Date(31,12,2024).nextDate(), new Date(1,1,2025));
     }
 
+    /**
+     * Tests previousDate
+     */
+    @Test
+    public void previousDateNonBoundaryDay(){
+        assertEquals(new Date(4,4,2024).previousDate(), new Date(3,4,2024));
+    }
+
+    @Test
+    public void previousDateDay1On31Month(){
+        assertEquals(new Date(1,8,2024).previousDate(), new Date(31,7,2024));
+    }
+
+    @Test
+    public void previousDateDay1On30Month(){
+        assertEquals(new Date(1,7,2024).previousDate(), new Date(30,6,2024));
+    }
+
+    @Test
+    public void previousDateDay1OnLeapYearFebruary(){
+        assertEquals(new Date(1,3,2024).previousDate(), new Date(29,2,2024));
+    }
+
+    @Test
+    public void previousDateDay1OnNonLeapYearFebruary(){
+        assertEquals(new Date(1,3,2025).previousDate(), new Date(28,2,2025));
+    }
+
+    @Test
+    public void previousDateJanuary1st(){
+        assertEquals(new Date(1,1,2025).previousDate(), new Date(31,12,2024));
+    }
+
 
 }
