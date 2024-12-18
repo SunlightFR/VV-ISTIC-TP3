@@ -1,6 +1,5 @@
-package test.java.fr.istic.vv;
+package fr.istic.vv;
 
-import main.java.fr.istic.vv.StringUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ public class StringUtilsTest {
 
     }
 
-    @org.junit.Test
+    @Test
     public void testEmptyString(){
         assertTrue(StringUtils.isBalanced(""));
     }

@@ -42,3 +42,5 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 - Enfin, en sortant de la boucle, on vérifie que la chaîne résultante est vide. Il y a deux cas possibles, vrai et faux. J'avais oublié d'ajouter un test vérifiant le cas faux. Il s'agit d'une situation dans laquelle le code a parcouru toute la chaîne sans trouver deux caractères successifs correspondants (ex. `()`). Il faut donc ajouter un critère : 
 
 - Séquence ne contenant *pas* deux caractères correspondants successifs (par exemple `[[))`).
+
+Pour une raison que j'ignore, je n'ai pas réussi à lancer PIT sur ce projet. Il a pourtant bien marché sur l'exercice des dates. 
