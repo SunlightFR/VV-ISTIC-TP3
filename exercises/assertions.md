@@ -14,5 +14,15 @@ Answer the following questions:
 
 1. L'assertion échoue à cause du point flottant. Le résultat donne une valeur proche de 1.2 mais pas exactement 1.2. Il faut le prendre en compte lors du test, en prévoyant une marge d'erreur par exemple.
 2. assertSame compare les références et assertEquals se sert de la méthode `equals()` (qui part défaut compare elle aussi les références). Ainsi par défaut elles produiront toujours le même résultat. Si en revanche on override la méthode equals() pour comparer certains attributs par exemple, alors les deux méthodes ne renverront pas le même résultat.
-3. nsp.
+3. Cela peut servir d'alternative plus explicite aux assertions, puisque fail peut prendre en paramètre une String :
+```java
+@Test
+public void testGetUserStatus() {
+    String status = getUserStatus(-1);
+    if (!status.equals("INVALID")) {
+        fail("Le statut 'INVALID' était attendu pour un ID négatif, mais obtenu : " + status);
+    }
+}
+```
+au lieu d'un simple `assertEquals(status,"INVALID")`, pour fournir une explication explicite du problème.
 4. Cela permet de choisir quelle exception est lancée dans chaque cas. Les tests sont donc plus précis.
